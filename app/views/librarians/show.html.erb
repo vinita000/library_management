@@ -1,4 +1,26 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+<strong>Name:</strong>
+<%= @librarian.name %>
+</p>
+
+<p>
+<strong>Email:</strong>
+<%= @librarian.email %>
+</p>
+
+<p>
+<strong>Phone No:</strong>
+<%= @librarian.phone_no %>
+</p>
+
+  
+  <% if @librarian.image.attached? %>
+  <%= image_tag url_for(@librarian.image), size: "64"%>
+  <% end %>
+
+
+
 <%= link_to 'Edit', edit_librarian_path(@librarian) %> |
 <%= link_to 'Back', librarians_path %>

@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_librarian!, only: [:show, :index, :destroy, :edit, :update]
   # GET /students
   # GET /students.json
   def index
@@ -69,6 +69,6 @@ class StudentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params.fetch(:student, {})
+      params.require(:student).permit(:name, :phone_no, :image)
     end
 end
