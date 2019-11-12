@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th colspan="3"></th>
+      <th>Profile Picture</th>
       <th>Name</th>
       <th>Email</th>
       <th>Phone No.</th>
@@ -16,10 +17,10 @@
   <tbody>
     <% @students.each do |student| %>
       <tr>
-        <td><%= image_tag url_for(student.images.first), size: "64" if student.images.attached? %></td>
+        <td><%= image_tag url_for(student.image), size: "64" if student.image.attached? %></td>
         <td><%= student.name %></td>
         <td><%= student.email %></td>
-        <td><%= student.phone %></td>
+        <td><%= student.phone_no %></td>
         <td><%= link_to 'Show', student %></td>
         <td><%= link_to 'Edit', edit_student_path(student) %></td>
         <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -30,4 +31,4 @@
 
 <br>
 
-<%= link_to 'New Student', new_student_path %>
+

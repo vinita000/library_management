@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_11_074116) do
+ActiveRecord::Schema.define(version: 2019_11_12_165308) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(version: 2019_11_11_074116) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "author_name"
+    t.datetime "receiving_date"
+    t.datetime "submission_date"
   end
 
   create_table "librarians", force: :cascade do |t|
@@ -55,10 +57,8 @@ ActiveRecord::Schema.define(version: 2019_11_11_074116) do
     t.string "name"
     t.string "phone_no"
     t.string "image"
-    t.bigint "student_id"
     t.index ["email"], name: "index_librarians_on_email", unique: true
     t.index ["reset_password_token"], name: "index_librarians_on_reset_password_token", unique: true
-    t.index ["student_id"], name: "index_librarians_on_student_id"
   end
 
   create_table "students", force: :cascade do |t|
@@ -73,12 +73,14 @@ ActiveRecord::Schema.define(version: 2019_11_11_074116) do
     t.string "phone_no"
     t.string "image"
     t.bigint "book_id"
+    t.bigint "librarian_id"
     t.index ["book_id"], name: "index_students_on_book_id"
     t.index ["email"], name: "index_students_on_email", unique: true
+    t.index ["librarian_id"], name: "index_students_on_librarian_id"
     t.index ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "librarians", "students"
   add_foreign_key "students", "books"
+  add_foreign_key "students", "librarians"
 end
