@@ -8,15 +8,18 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
   <div class="field" >
-  <%= f.text_field :name, autocomplete: "name", class: "form-control", placeholder: "Name" %>
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autocomplete: "name", class: "form-control", placeholder: "Name" %>
   </div>
 
   <div class="field" >
-  <%= f.text_field :phone_no, autocomplete: "phone_no", class: "form-control", placeholder: "Phone_no" %>
+    <%= f.label :phone_no %><br />
+    <%= f.text_field :phone_no, autocomplete: "phone_no", class: "form-control", placeholder: "Phone_no" %>
   </div>
 
   <div class="field" >
-  <%= f.file_field :image, autocomplete: "image", class: "form-control", placeholder: "Image" %>
+    <%= f.label :image %><br />
+    <%= f.file_field :image, autocomplete: "image", class: "form-control", placeholder: "Image" %>
   </div>
 
   <div class="field">

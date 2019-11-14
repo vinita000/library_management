@@ -17,12 +17,15 @@
 </p>
 
 <p>
-  <%=@book.receiving_date %>
+<strong>Receiving Date:</strong>
+<%= @book.receiving_date = DateTime.now %>
 </p>
 
 <p>
-  <%=@book.submission_date %>
-</p>  
+  <strong>Submission Date:</strong>
+  <%= @book.submission_date = DateTime.now + 7.days %>
+</p>
 
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>
+<td><%= link_to 'Destroy', @book, method: :delete, data: { confirm: 'Are you sure?' } %></td>

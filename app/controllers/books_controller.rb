@@ -24,7 +24,7 @@ class BooksController < ApplicationController
   # POST /books
   # POST /books.json
   def create
-    @book = Book.new(book_params)
+    @book = Book.new(book_params.merge(student_id:Student.student.id))
 
     respond_to do |format|
       if @book.save
@@ -61,6 +61,8 @@ class BooksController < ApplicationController
     end
   end
 
+  
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_book
@@ -69,6 +71,6 @@ class BooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:book_name, :description, :author_name)
+      params.require(:book).permit(:book_name, :description, :author_name, :receiving_date, :submission_date)
     end
 end

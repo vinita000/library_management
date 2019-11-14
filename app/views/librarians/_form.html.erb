@@ -11,10 +11,10 @@
     </div>
   <% end %>
   <tr>
-  <td ><%= f.input :image, as: :file, label: false, input_html: {multiple: false %></td>
-  <td ><%= f.input :name, label: false %></td>
-  <td ><%= f.input :email, label: false %></td>
-  <td ><%= f.input :phone_no, label: false %></td>
+  <td ><%= form.file_field :image, as: :file, label: false, input_html: {multiple: false} %></td>
+  <td ><%= form.text_field :name, label: false %></td>
+  <td ><%= form.text_field :email, label: false %></td>
+  <td ><%= form.text_field :phone_no, label: false %></td>
   </tr>
 
   <div class="actions">

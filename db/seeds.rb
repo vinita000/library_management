@@ -7,6 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Librarian.create!(name: "vinita", 
-email: "vinitaksoni05021@gmail.com",
-password: "Magic2512@",
+email: "vinitaksoni0@gmail.com",
+password: "Magic2512@1",
 phone_no: 7044388320)
